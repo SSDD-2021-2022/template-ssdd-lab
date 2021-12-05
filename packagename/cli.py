@@ -1,11 +1,19 @@
 """Submodule containing the CLI command handlers."""
 
+import os
 import sys
+
+import Ice
+
+Ice.loadSlice(os.path.join(os.path.dirname(__file__), "iceflix.ice"))
+import IceFlix  # pylint: disable=wrong-import-position
+
 
 
 def main_service():
     """Handles the `mainservice` CLI command."""
     print("Main service")
+    print(IceFlix.__name__)
     sys.exit(0)
 
 
