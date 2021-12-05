@@ -5,9 +5,11 @@ import sys
 
 import Ice
 
-Ice.loadSlice(os.path.join(os.path.dirname(__file__), "iceflix.ice"))
-import IceFlix  # pylint: disable=wrong-import-position
-
+try:
+    import IceFlix
+except ImportError:
+    Ice.loadSlice(os.path.join(os.path.dirname(__file__), "iceflix.ice"))
+    import IceFlix
 
 
 def main_service():
