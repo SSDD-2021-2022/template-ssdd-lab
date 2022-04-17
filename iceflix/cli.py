@@ -1,22 +1,21 @@
 """Submodule containing the CLI command handlers."""
 
-import os
+import logging
 import sys
 
-import Ice
+from iceflix.main import MainApp
 
-try:
-    import IceFlix
-except ImportError:
-    Ice.loadSlice(os.path.join(os.path.dirname(__file__), "iceflix.ice"))
-    import IceFlix
+
+def setup_logging():
+    """Configure the logging."""
+    logging.basicConfig(level=logging.DEBUG)
 
 
 def main_service():
     """Handles the `mainservice` CLI command."""
-    print("Main service")
-    print(IceFlix.__name__)
-    sys.exit(0)
+    setup_logging()
+    logging.info("Main service starting...")
+    sys.exit(MainApp().main(sys.argv))
 
 
 def catalog_service():
@@ -25,7 +24,7 @@ def catalog_service():
     sys.exit(0)
 
 
-def streaming_service():
+def streamprovider_service():
     """Handles the `streamingservice` CLI command."""
     print("Streaming service")
     sys.exit(0)
