@@ -34,3 +34,9 @@ def authentication_service():
     """Handles the `authenticationservice` CLI command."""
     print("Authentication service")
     sys.exit(0)
+
+
+def client():
+    """Handles the IceFlix client CLI command."""
+    print("Starting IceFlix client...")
+    sys.exit(0)
