@@ -1,0 +1,10 @@
+# -*- mode: bash -*-
+
+function start_icestorm {
+    mkdir -p /tmp/icestorm
+    icebox --Ice.Config=./configs/icebox.config &
+}
+
+start_icestorm
+
+# TODO: Launch all the services!
